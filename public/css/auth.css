@@ -1,0 +1,390 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+    overflow:hidden;
+}
+
+/* CONTAINER */
+
+.auth-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* FORM */
+
+.auth-form{
+
+    width:400px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.3);
+
+    animation:fadeIn 0.8s ease;
+
+}
+
+/* TITLE */
+
+.auth-form h1{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:30px;
+
+    font-size:32px;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+
+    display:block;
+
+    color:white;
+
+    margin-bottom:8px;
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:rgba(255,255,255,0.15);
+
+    color:white;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+.input-group input:focus{
+
+    background:rgba(255,255,255,0.25);
+
+    transform:scale(1.02);
+}
+
+/* BUTTON */
+
+.auth-btn{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#facc15;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.auth-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(250,204,21,0.3);
+}
+
+/* LINKS */
+
+.extra-links{
+    text-align:right;
+    margin-bottom:20px;
+}
+
+.extra-links a,
+.bottom-text a{
+
+    color:#facc15;
+
+    text-decoration:none;
+}
+
+.bottom-text{
+
+    text-align:center;
+
+    color:white;
+
+    margin-top:20px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* LOADER */
+
+.loader-container{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.5);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.loader{
+
+    width:60px;
+    height:60px;
+
+    border:6px solid #ddd;
+
+    border-top:6px solid #facc15;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+}
+
+.hidden{
+    display:none;
+}
+
+@keyframes spin{
+
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* TOAST CONTAINER */
+
+.toast-container{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    z-index:9999;
+}
+
+/* TOAST */
+
+.toast{
+
+    position:relative;
+
+    min-width:320px;
+
+    padding:16px 20px;
+
+    border-radius:16px;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(14px);
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.25);
+
+    animation:toastSlide 0.4s ease;
+
+    transition:0.3s;
+}
+
+/* HOVER */
+
+.toast:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* ICON */
+
+.toast-icon{
+
+    font-size:22px;
+}
+
+/* CONTENT */
+
+.toast-content{
+
+    flex:1;
+}
+
+.toast-message{
+
+    font-size:15px;
+
+    font-weight:500;
+
+    line-height:1.4;
+}
+
+/* TYPES */
+
+.toast.success{
+    border-left:5px solid #22c55e;
+}
+
+.toast.error{
+    border-left:5px solid #ef4444;
+}
+
+.toast.warning{
+    border-left:5px solid #f59e0b;
+}
+
+/* PROGRESS BAR */
+
+.toast-progress{
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    height:4px;
+
+    width:100%;
+
+    animation:progress 3s linear forwards;
+}
+
+/* COLORS */
+
+.toast.success .toast-progress{
+    background:#22c55e;
+}
+
+.toast.error .toast-progress{
+    background:#ef4444;
+}
+
+.toast.warning .toast-progress{
+    background:#f59e0b;
+}
+
+/* SLIDE IN */
+
+@keyframes toastSlide{
+
+    from{
+        transform:translateX(120%);
+        opacity:0;
+    }
+
+    to{
+        transform:translateX(0);
+        opacity:1;
+    }
+}
+
+/* SLIDE OUT */
+
+@keyframes toastHide{
+
+    to{
+        transform:translateX(120%);
+        opacity:0;
+    }
+}
+
+/* PROGRESS */
+
+@keyframes progress{
+
+    from{
+        width:100%;
+    }
+
+    to{
+        width:0%;
+    }
+}

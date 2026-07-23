@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="images/movie_app_reel.png" />
+
+    <link rel="stylesheet" href="/css/dashboard.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+
+    <nav class="dashboard-navbar">
+      <!-- TOP LEFT -->
+
+      <div class="nav-left">
+        <!-- MOBILE MENU -->
+
+        <button id="menuBtn" class="menu-btn">☰</button>
+        <div>
+          <img src="/images/movie_app_reel.png" alt="Logo" id="appLogo" />
+          <p>Movie App</p>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+
+      <div class="sidebar" id="sidebar">
+        <!-- SEARCH -->
+
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search movies..." />
+        </div>
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+          <select id="heroFilter">
+            <option value="">Hero</option>
+          </select>
+
+          <select id="directorFilter">
+            <option value="">Director</option>
+          </select>
+
+          <select id="yearFilter">
+            <option value="">Year</option>
+          </select>
+
+          <select id="ratingFilter">
+            <option value="">Rating</option>
+
+            <option value="1">1 Star</option>
+            <option value="2">2 Star</option>
+            <option value="3">3 Star</option>
+            <option value="4">4 Star</option>
+            <option value="5">5 Star</option>
+          </select>
+
+          <!-- CLEAR -->
+
+          <button id="clearFiltersBtn" class="clear-btn">✖ Clear All</button>
+        </div>
+
+        <!-- ACTIONS -->
+
+        <div class="nav-actions">
+          <!-- THEME BUTTON -->
+
+          <button id="themeToggle" class="theme-btn">🌙</button>
+
+          <button id="addMovieBtn" class="add-btn">Add Movie</button>
+
+          <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </div>
+
+      <!-- SIDEBAR OVERLAY -->
+
+      <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+    </nav>
+
+    <!-- TABLE SECTION -->
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Movie</th>
+            <th>Hero</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Runtime</th>
+            <th>Rating</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="movieTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- EMPTY STATE -->
+
+    <div class="empty-state hidden" id="emptyState">
+      <h2>🎬 No Movies Found</h2>
+
+      <p>Start building your movie collection.</p>
+
+      <button id="emptyAddBtn" class="add-btn">+ Add Your First Movie</button>
+    </div>
+
+    <!-- ADD MOVIE MODAL -->
+
+    <div class="modal hidden" id="movieModal">
+      <div class="modal-content">
+        <h2 id="modalTitle">Add Movie</h2>
+
+        <form id="movieForm">
+          <input type="text" id="movieName" placeholder="Movie Name" required />
+
+          <input type="text" id="hero" placeholder="Hero" required />
+
+          <input type="text" id="director" placeholder="Director" required />
+
+          <input type="number" id="releaseYear" placeholder="Release Year" required />
+
+          <input type="text" id="genre" placeholder="Genre" required />
+
+          <input type="text" id="runtime" placeholder="Runtime" required />
+
+          <!-- STAR RATING -->
+
+          <div class="star-rating" id="starRating">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+          </div>
+
+          <button type="submit" class="save-btn">
+            <span id="saveBtnText"> Save Movie </span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOADER -->
+
+    <div class="loader-container hidden" id="loader">
+      <div class="loader"></div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

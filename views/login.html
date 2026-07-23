@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/movie_app_reel.png" />
+
+    <title>Login - Movie App</title>
+
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+
+  <body>
+    <div class="auth-container">
+      <form class="auth-form" id="loginForm">
+        <h1>Login</h1>
+
+        <div class="input-group">
+          <label>Email</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div class="extra-links">
+          <a href="/forgotPassword.html"> Forgot Password? </a>
+        </div>
+
+        <button type="submit" class="auth-btn">Login</button>
+
+        <p class="bottom-text">
+          Don't have an account?
+
+          <a href="/register.html"> Register </a>
+        </p>
+      </form>
+    </div>
+
+    <!-- LOADING SPINNER -->
+    <div class="loader-container hidden" id="loader">
+      <div class="loader"></div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>
